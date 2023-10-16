@@ -1,10 +1,12 @@
 {
   "name": "@devs-studio/angular-validators",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "peerDependencies": {
     "@angular/common": "^16.2.5",
     "@angular/core": "^16.2.5",
-    "@devs-studio/string": "^1.0.22"
+    "@devs-studio/string": "^1.0.22",
+    "@devs-studio/sunat": "^1.0.10",
+    "moment": "^2.29.4"
   },
   "dependencies": {
     "tslib": "^2.3.0"
