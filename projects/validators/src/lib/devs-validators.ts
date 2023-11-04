@@ -6,6 +6,7 @@ import { isEnum } from "./is-enum.validator";
 import { isValidDate } from "./is-valid-date.validator";
 import { isValidIdentificationNumber } from "./is-valid-identification-number.validator";
 import { checkArrayAtLeast } from "./array-at-least.validator";
+import { checkArrayAtLeast2 } from "./array-at-least2.validator";
 
 export class DevsValidators {
     static checkArrayUnique(fields: string[], alias: boolean): ValidatorFn {
@@ -14,6 +15,10 @@ export class DevsValidators {
 
     static checkArrayAtLeast(field: string, value: string | number | boolean, quantity: number = 1): ValidatorFn {
         return checkArrayAtLeast(field, value, quantity);
+    }
+
+    static checkArrayAtLeast2(fn: (val: any) => boolean, quantity: number = 1): ValidatorFn {
+        return checkArrayAtLeast2(fn, quantity);
     }
 
     static isGreaterThanOrEqual(right: string): ValidatorFn {

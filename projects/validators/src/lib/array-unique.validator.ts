@@ -6,14 +6,25 @@ interface ArrayUniqueItem {
 }
 
 function _checkDuplicates(inputs: ArrayUniqueItem[], fields: string[], alias: boolean) {
+
     var items = inputs.reduce<string[]>((acc, cur) => {
+        // Verificar si cur es un objeto vacío
+        if (Object.keys(cur).length === 0) {
+            return acc; // Ignorar objetos vacíos
+        }
+
         var parts = [];
         for (let field of fields) {
-            if (alias) {
-                parts.push(generateAlias(cur[field]));
+            if (cur[field] !== null && cur[field] !== undefined) {
+                if (alias) {
+                    parts.push(generateAlias(cur[field]));
+                } else {
+                    parts.push(cur[field]);
+                }
             } else {
-                parts.push(cur[field]);
+                return acc;
             }
+
         }
         acc.push(parts.join('|'));
         return acc;

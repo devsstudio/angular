@@ -10,6 +10,7 @@ function _baseFunction(right: string, rule: string, callback: (left: Number, rig
             const rightValue = Number(formGroup.get(right)?.value);
 
             if (!Number.isNaN(leftValue) && !Number.isNaN(rightValue) && !callback(leftValue, rightValue)) {
+                // formGroup.get(right)?.updateValueAndValidity({ emitEvent: false });
                 return { [rule]: true };
             }
         }
