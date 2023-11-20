@@ -7,6 +7,7 @@ import { isValidDate } from "./is-valid-date.validator";
 import { isValidIdentificationNumber } from "./is-valid-identification-number.validator";
 import { checkArrayAtLeast } from "./array-at-least.validator";
 import { checkArrayAtLeast2 } from "./array-at-least2.validator";
+import { isValidDocumentSerie } from "./is-valid-document-serie.validator";
 
 export class DevsValidators {
     static checkArrayUnique(fields: string[], alias: boolean): ValidatorFn {
@@ -43,5 +44,9 @@ export class DevsValidators {
 
     static isValidIdentificationNumber(controlName: string) {
         return isValidIdentificationNumber(controlName);
+    }
+
+    static isValidDocumentSerie(fileCodeControlname: string, sunatCodeControName: string, isElectronicControlName: string) {
+        return isValidDocumentSerie(fileCodeControlname, sunatCodeControName, isElectronicControlName);
     }
 }
