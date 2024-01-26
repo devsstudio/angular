@@ -8,6 +8,8 @@ import { isValidIdentificationNumber } from "./is-valid-identification-number.va
 import { checkArrayAtLeast } from "./array-at-least.validator";
 import { checkArrayAtLeast2 } from "./array-at-least2.validator";
 import { isValidDocumentSerie } from "./is-valid-document-serie.validator";
+import { isValidPhoneNumber } from "./phone-number.validator";
+import { CountryCode } from "libphonenumber-js";
 
 export class DevsValidators {
     static checkArrayUnique(fields: string[], alias: boolean): ValidatorFn {
@@ -48,5 +50,9 @@ export class DevsValidators {
 
     static isValidDocumentSerie(fileCodeControlname: string, sunatCodeControName: string, isElectronicControlName: string) {
         return isValidDocumentSerie(fileCodeControlname, sunatCodeControName, isElectronicControlName);
+    }
+
+    static isValidPhoneNumber(country?: CountryCode) {
+        return isValidPhoneNumber(country);
     }
 }

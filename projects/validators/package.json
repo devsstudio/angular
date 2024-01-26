@@ -1,6 +1,6 @@
 {
   "name": "@devs-studio/angular-validators",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "peerDependencies": {
     "@angular/common": "^17.1.0",
     "@angular/core": "^17.1.0",
