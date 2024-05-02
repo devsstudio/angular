@@ -10,6 +10,8 @@ import { checkArrayAtLeast2 } from "./array-at-least2.validator";
 import { isValidDocumentSerie } from "./is-valid-document-serie.validator";
 import { isValidPhoneNumber } from "./phone-number.validator";
 import { CountryCode } from "libphonenumber-js";
+import { IsEmailOptions } from "validator";
+import { isValidEmail } from "./email.validator";
 
 export class DevsValidators {
     static checkArrayUnique(fields: string[], alias: boolean): ValidatorFn {
@@ -54,5 +56,9 @@ export class DevsValidators {
 
     static isValidPhoneNumber(country?: CountryCode) {
         return isValidPhoneNumber(country);
+    }
+
+    static isValidEmail(options: IsEmailOptions | undefined = undefined) {
+        return isValidEmail(options);
     }
 }
