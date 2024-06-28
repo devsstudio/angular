@@ -7,6 +7,7 @@ import { HourMinutePipe } from './hour-minute.pipe';
 import { IntPipe } from './int.pipe';
 import { PercentPipe } from './percent.pipe';
 import { TruncatePipe } from './truncate.pipe';
+import { TimeAgoPipe } from './time-ago.pipe';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { TruncatePipe } from './truncate.pipe';
     HourMinutePipe,
     IntPipe,
     PercentPipe,
-    TruncatePipe
+    TruncatePipe,
+    TimeAgoPipe
   ],
   imports: [
   ],
@@ -30,7 +32,8 @@ import { TruncatePipe } from './truncate.pipe';
     HourMinutePipe,
     IntPipe,
     PercentPipe,
-    TruncatePipe
+    TruncatePipe,
+    TimeAgoPipe
   ]
 })
 export class DevsPipesModule { }

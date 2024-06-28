@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'datePipe',
 })
 export class DatePipe extends AngularDatePipe implements PipeTransform {
-  override transform(value: any, args?: any): any {
-    return super.transform(value, 'dd/MM/YYYY');
+  override transform(value: any, format: string = 'dd/MM/YYYY'): any {
+    return super.transform(value, format);
   }
 }

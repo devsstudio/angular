@@ -11,3 +11,4 @@ export * from './lib/hour-minute.pipe';
 export * from './lib/int.pipe';
 export * from './lib/percent.pipe';
 export * from './lib/truncate.pipe';
+export * from './lib/time-ago.pipe';
