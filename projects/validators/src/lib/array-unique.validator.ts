@@ -5,7 +5,13 @@ interface ArrayUniqueItem {
     [key: string]: any,
 }
 
-function _checkDuplicates(inputs: ArrayUniqueItem[], fields: string[], alias: boolean) {
+export enum ArrayUniqueProcessType {
+    CASEINSENSITIVE = "CASEINSENSITIVE",
+    ALIAS = "ALIAS",
+    SPACES = "SPACES"
+}
+
+function _checkDuplicates(inputs: ArrayUniqueItem[], fields: string[], processType: ArrayUniqueProcessType) {
 
     var items = inputs.reduce<string[]>((acc, cur) => {
         // Verificar si cur es un objeto vacío
@@ -15,16 +21,18 @@ function _checkDuplicates(inputs: ArrayUniqueItem[], fields: string[], alias: bo
 
         var parts = [];
         for (let field of fields) {
-            if (cur[field] !== null && cur[field] !== undefined) {
-                if (alias) {
-                    parts.push(generateAlias(cur[field]));
-                } else {
-                    parts.push(cur[field]);
-                }
-            } else {
-                return acc;
+            var value = cur[field].toLowerCase();
+            switch (processType) {
+                case ArrayUniqueProcessType.ALIAS:
+                    parts.push(generateAlias(value));
+                    break;
+                case ArrayUniqueProcessType.SPACES:
+                    parts.push(value.replace(/\s/g, ''));
+                    break;
+                default:
+                    parts.push(value);
+                    break;
             }
-
         }
         acc.push(parts.join('|'));
         return acc;
@@ -37,12 +45,12 @@ function _checkDuplicates(inputs: ArrayUniqueItem[], fields: string[], alias: bo
     return items.length === uniques.length;
 }
 
-export function checkArrayUnique(fields: string[], alias: boolean): ValidatorFn {
+export function checkArrayUnique(fields: string[], processType: ArrayUniqueProcessType = ArrayUniqueProcessType.CASEINSENSITIVE): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
 
         const items = control.value as ArrayUniqueItem[];
 
-        if (!_checkDuplicates(items, fields, alias)) {
+        if (!_checkDuplicates(items, fields, processType)) {
             return { unique: { value: control.value } };
         }
 
