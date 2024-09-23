@@ -1,5 +1,5 @@
 import { ValidatorFn } from "@angular/forms";
-import { ArrayUniqueProcessType, checkArrayUnique } from "./array-unique.validator";
+import { checkArrayUnique } from "./array-unique.validator";
 import { isGreaterThanOrEqual, isLessThanOrEqual } from "./arithmetic.validator";
 import { mustMatchValidator } from "./must-match.validator";
 import { isEnum } from "./is-enum.validator";
@@ -12,9 +12,10 @@ import { isValidPhoneNumber } from "./phone-number.validator";
 import { CountryCode } from "libphonenumber-js";
 import { IsEmailOptions } from "validator";
 import { isValidEmail } from "./email.validator";
+import { ArrayUniqueProcessType } from "@devs-studio/array";
 
 export class DevsValidators {
-    static checkArrayUnique(fields: string[], processType: ArrayUniqueProcessType = ArrayUniqueProcessType.CASEINSENSITIVE): ValidatorFn {
+    static checkArrayUnique(fields: string[], processType: ArrayUniqueProcessType = ArrayUniqueProcessType.NONE): ValidatorFn {
         return checkArrayUnique(fields, processType);
     }
 
