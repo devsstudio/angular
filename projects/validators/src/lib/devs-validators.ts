@@ -13,6 +13,9 @@ import { CountryCode } from "libphonenumber-js";
 import { IsEmailOptions } from "validator";
 import { isValidEmail } from "./email.validator";
 import { ArrayUniqueProcessType } from "@devs-studio/array";
+import { isValidDocumentCorrelative } from "./is-valid-document-correlative.validator";
+import { isValidDocumentSerieDeduced } from "./is-valid-document-serie-deduced.validator";
+import { isValidDocumentCorrelativeDeduced } from "./is-valid-document-correlative-deduced.validator";
 
 export class DevsValidators {
     static checkArrayUnique(fields: string[], processType: ArrayUniqueProcessType = ArrayUniqueProcessType.NONE): ValidatorFn {
@@ -53,6 +56,18 @@ export class DevsValidators {
 
     static isValidDocumentSerie(fileCodeControlname: string, sunatCodeControName: string, isElectronicControlName: string) {
         return isValidDocumentSerie(fileCodeControlname, sunatCodeControName, isElectronicControlName);
+    }
+
+    static isValidDocumentCorrelative(fileCodeControlname: string, sunatCodeControName: string, isElectronicControlName: string) {
+        return isValidDocumentCorrelative(fileCodeControlname, sunatCodeControName, isElectronicControlName);
+    }
+
+    static isValidDocumentSerieDeduced(fileCodeControlname: string | null, fileCode: string | null, sunatCodeControName: string | null, sunatCode: string | null) {
+        return isValidDocumentSerieDeduced(fileCodeControlname, fileCode, sunatCodeControName, sunatCode);
+    }
+
+    static isValidDocumentCorrelativeDeduced(fileCodeControlname: string | null, fileCode: string | null, sunatCodeControName: string | null, sunatCode: string | null, serieControlName: string | null, serie: string | null) {
+        return isValidDocumentCorrelativeDeduced(fileCodeControlname, fileCode, sunatCodeControName, sunatCode, serieControlName, serie);
     }
 
     static isValidPhoneNumber(country?: CountryCode) {

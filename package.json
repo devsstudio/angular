@@ -23,7 +23,7 @@
     "@angular/router": "^17.1.0",
     "@devs-studio/array": "^1.0.4",
     "@devs-studio/string": "^1.0.22",
-    "@devs-studio/sunat": "^1.0.14",
+    "@devs-studio/sunat": "^1.0.17",
     "libphonenumber-js": "^1.10.54",
     "moment": "^2.29.4",
     "rxjs": "~7.5.0",
