@@ -1,9 +1,9 @@
 {
   "name": "@devs-studio/angular-validators",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "peerDependencies": {
-    "@angular/common": "^17.1.0",
-    "@angular/core": "^17.1.0",
+    "@angular/common": "^19.1.0",
+    "@angular/core": "^19.1.0",
     "@devs-studio/array": "^1.0.4",
     "@devs-studio/string": "^1.0.22",
     "@devs-studio/sunat": "^1.0.17",

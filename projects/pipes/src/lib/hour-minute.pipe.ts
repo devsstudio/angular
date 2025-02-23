@@ -3,6 +3,7 @@ import { DatePipe } from '@angular/common';
 
 @Pipe({
   name: 'hourMinutePipe',
+  standalone: false,
 })
 export class HourMinutePipe extends DatePipe implements PipeTransform {
   override transform(value: any, args?: any): any {

@@ -3,6 +3,7 @@ import { DatePipe } from '@angular/common';
 
 @Pipe({
   name: 'datetimePipe',
+  standalone: false,
 })
 export class DatetimePipe extends DatePipe implements PipeTransform {
   override transform(value: any, format: string = 'dd/MM/yyyy h:mm:ss a'): any {

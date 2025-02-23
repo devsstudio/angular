@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'currencyPipe',
+  standalone: false,
 })
 export class CurrencyPipe implements PipeTransform {
   transform(value: any, currency: 'USD' | 'PEN'): any {
