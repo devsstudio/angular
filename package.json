@@ -21,7 +21,7 @@
     "@angular/platform-browser": "^19.1.0",
     "@angular/platform-browser-dynamic": "^19.1.0",
     "@angular/router": "^19.1.0",
-    "@devs-studio/array": "^1.0.4",
+    "@devs-studio/array": "^1.0.7",
     "@devs-studio/string": "^1.0.22",
     "@devs-studio/sunat": "^1.0.17",
     "libphonenumber-js": "^1.10.54",
